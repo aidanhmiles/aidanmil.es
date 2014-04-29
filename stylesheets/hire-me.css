@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+/* line 19, ../sass/hire-me.css.scss */
+body {
+  background-color: white;
+  font-size: 1.25em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #d1d3d4;
+}
+
+/* line 28, ../sass/hire-me.css.scss */
+p {
+  margin-bottom: 1.3em;
+}
+
+/* line 30, ../sass/hire-me.css.scss */
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* line 36, ../sass/hire-me.css.scss */
+h1 {
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 3.998em;
+}
+
+/* line 42, ../sass/hire-me.css.scss */
+#name {
+  font-size: 6.654em;
+}
+
+/* line 46, ../sass/hire-me.css.scss */
+h2 {
+  font-size: 2.827em;
+}
+
+/* line 47, ../sass/hire-me.css.scss */
+h3 {
+  font-size: 1.999em;
+}
+
+/* line 48, ../sass/hire-me.css.scss */
+h4 {
+  font-size: 1.414em;
+}
+
+/* line 49, ../sass/hire-me.css.scss */
+small, .font_small {
+  font-size: 0.707em;
+}
+
+/* line 59, ../sass/hire-me.css.scss */
+section {
+  height: 600px;
+  background-color: #2a2a2a;
+}
+
+/* line 64, ../sass/hire-me.css.scss */
+.slide-content {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
