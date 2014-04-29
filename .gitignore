@@ -1,6 +1,6 @@
 *.scss
 TODO
 sass/
-prepwork 
+prepwork/* 
 .sass-cache
 
