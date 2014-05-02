@@ -1,10 +1,9 @@
-
 function resizeBlocks(){
 
 	vpwidth = $(window).width();
 	vpheight = $(window).height();
 
-	$('section').css('height', vpheight);
+	$('section').css('min-height', vpheight);
 
 };
 

@@ -1,67 +1,138 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
-/* line 19, ../sass/hire-me.css.scss */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
+/* line 32, ../sass/hire-me.css.scss */
+#slide2 {
+  background-color: #77207d;
+}
+
+/* line 35, ../sass/hire-me.css.scss */
+#slide3 {
+  background-color: #0f4fa8;
+}
+
+/* line 38, ../sass/hire-me.css.scss */
+#slide4 {
+  background-color: #ff9c40;
+}
+
+/* line 41, ../sass/hire-me.css.scss */
+#slide5 {
+  background-color: #05316d;
+}
+
+/* line 54, ../sass/hire-me.css.scss */
 body {
   background-color: white;
   font-size: 1.25em;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.45;
-  color: #d1d3d4;
+  color: #dddddd;
 }
 
-/* line 28, ../sass/hire-me.css.scss */
+/* line 63, ../sass/hire-me.css.scss */
 p {
   margin-bottom: 1.3em;
 }
 
-/* line 30, ../sass/hire-me.css.scss */
+/* line 65, ../sass/hire-me.css.scss */
 h1, h2, h3, h4 {
-  margin: 1.414em 0 0.5em;
+  margin: 1.414em 0 0.2em;
   font-weight: 300;
   line-height: 1.2;
 }
 
-/* line 36, ../sass/hire-me.css.scss */
+/* line 71, ../sass/hire-me.css.scss */
 h1 {
   margin-top: 0;
-  font-weight: 400;
   font-size: 3.998em;
 }
 
-/* line 42, ../sass/hire-me.css.scss */
+/* line 76, ../sass/hire-me.css.scss */
 #name {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
   font-size: 6.654em;
 }
 
-/* line 46, ../sass/hire-me.css.scss */
+/* line 82, ../sass/hire-me.css.scss */
 h2 {
   font-size: 2.827em;
 }
 
-/* line 47, ../sass/hire-me.css.scss */
+/* line 83, ../sass/hire-me.css.scss */
 h3 {
   font-size: 1.999em;
 }
 
-/* line 48, ../sass/hire-me.css.scss */
+/* line 84, ../sass/hire-me.css.scss */
 h4 {
   font-size: 1.414em;
 }
 
-/* line 49, ../sass/hire-me.css.scss */
+/* line 85, ../sass/hire-me.css.scss */
 small, .font_small {
   font-size: 0.707em;
 }
 
-/* line 59, ../sass/hire-me.css.scss */
+/* line 103, ../sass/hire-me.css.scss */
 section {
+  clear: both;
   height: 600px;
   background-color: #2a2a2a;
 }
+/* line 95, ../sass/hire-me.css.scss */
+section:after {
+  clear: both;
+  content: "";
+  display: block;
+}
 
-/* line 64, ../sass/hire-me.css.scss */
+/* line 110, ../sass/hire-me.css.scss */
 .slide-content {
   width: 70%;
   margin: 0 auto;
   text-align: center;
+}
+/* line 95, ../sass/hire-me.css.scss */
+.slide-content:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* line 95, ../sass/hire-me.css.scss */
+.wrapper:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* line 120, ../sass/hire-me.css.scss */
+.main-icon-listing {
+  width: 200px;
+  margin: 50px auto 0;
+  display: inline-block;
+}
+
+/* line 126, ../sass/hire-me.css.scss */
+.icon-large {
+  margin: 0 auto;
+  height: 120px;
+  width: 110px;
+  transition: all 1s;
+  background-color: none;
+  background-image: url("../assets/hexagrams_110x120_gray.png");
+  background-position: 110px 0;
+}
+/* line 137, ../sass/hire-me.css.scss */
+.icon-large:hover {
+  background-color: white;
+}
+
+/* line 146, ../sass/hire-me.css.scss */
+.icon-large-label {
+  margin-top: 15px;
+  padding: 0;
+  font-weight: 300;
 }
