@@ -248,18 +248,18 @@ section:after {
 }
 /* line 246, ../sass/hire-me.css.scss */
 #resume ul {
-  margin-top: 10px;
+  padding-bottom: 20px;
   margin-left: 15px;
   text-align: left;
   vertical-align: middle;
 }
-/* line 253, ../sass/hire-me.css.scss */
+/* line 257, ../sass/hire-me.css.scss */
 #resume .small-box {
   width: 35%;
   margin-left: 30px;
   float: right;
 }
-/* line 259, ../sass/hire-me.css.scss */
+/* line 263, ../sass/hire-me.css.scss */
 #resume .experience {
   float: left;
 }
@@ -269,46 +269,46 @@ section:after {
   content: "";
   display: block;
 }
-/* line 268, ../sass/hire-me.css.scss */
+/* line 273, ../sass/hire-me.css.scss */
 #resume .company a {
   color: white;
 }
-/* line 270, ../sass/hire-me.css.scss */
+/* line 275, ../sass/hire-me.css.scss */
 #resume .company a:hover {
   color: #6996d3;
 }
-/* line 276, ../sass/hire-me.css.scss */
+/* line 281, ../sass/hire-me.css.scss */
 #resume .company-description {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7);
 }
-/* line 282, ../sass/hire-me.css.scss */
+/* line 287, ../sass/hire-me.css.scss */
 #resume .responsibilities {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7);
 }
-/* line 288, ../sass/hire-me.css.scss */
+/* line 293, ../sass/hire-me.css.scss */
 #resume em {
   font-size: .9em;
   color: #dddddd;
 }
-/* line 293, ../sass/hire-me.css.scss */
+/* line 298, ../sass/hire-me.css.scss */
 #resume .achievement {
   font-size: .7em;
   color: #6996d3;
 }
 
-/* line 301, ../sass/hire-me.css.scss */
+/* line 306, ../sass/hire-me.css.scss */
 #projects img {
   width: 100%;
 }
-/* line 305, ../sass/hire-me.css.scss */
+/* line 310, ../sass/hire-me.css.scss */
 #projects h3 {
   margin-top: .3em;
 }
-/* line 309, ../sass/hire-me.css.scss */
+/* line 314, ../sass/hire-me.css.scss */
 #projects .project-listing {
   width: 30%;
   margin: 0 auto;
@@ -316,12 +316,12 @@ section:after {
   display: inline-block;
 }
 
-/* line 320, ../sass/hire-me.css.scss */
+/* line 325, ../sass/hire-me.css.scss */
 #contact h4 {
   margin-bottom: 40px;
 }
 
-/* line 323, ../sass/hire-me.css.scss */
+/* line 328, ../sass/hire-me.css.scss */
 .contact-box {
   width: 170px;
   height: 170px;
@@ -329,11 +329,11 @@ section:after {
   margin: 20px auto 0;
   display: inline-block;
 }
-/* line 329, ../sass/hire-me.css.scss */
+/* line 334, ../sass/hire-me.css.scss */
 .contact-box:hover {
   background-color: rgba(221, 221, 221, 0.3);
 }
-/* line 333, ../sass/hire-me.css.scss */
+/* line 338, ../sass/hire-me.css.scss */
 .contact-box h4 {
   margin-top: 66px;
 }
