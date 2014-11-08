@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html>
+
+<head> 
+	<link rel="stylesheet" type="text/css" href="style.css"> 
+	<title> Spinner </title> 
+</head>
+
+<body> 
+	<figure id="spinner">
+		<div class="spin-img" id="outer"></div>
+		<div class="spin-img" id="inner"></div>
+		<div class="spin-img" id="circle"></div>
+
+		<figcaption id="percent-loaded-outer">
+			<p class="number">0</p>
+			<p class="percent-icon">%</p>
+		</figcaption>
+
+		<figcaption id="progress-bar"> 
+			<div id="percent-loaded-inner">
+				<p class="number">0</p> 
+				<p class="percent-icon">%</p>
+			</div>
+		</figcaption>
+	</figure> 
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/Users/ADN/Documents/work/resources/velocity.min.js"></script>
+<script src="spinner.js"></script>
+
+</html>
