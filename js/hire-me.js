@@ -25,13 +25,9 @@ $(document).ready(function(){
 	});
 
 	} else {
+		$("#spinner").css("display", "none");
 		$("#slides").css("display", "block"); 
-		$("#slide1").velocity({
-			top: 0
-		},{
-			duration: 1800,
-			easing: "easeInOutQuad"
-		});
+		$("#slide1").css("top", 0);
 	}
 
 
