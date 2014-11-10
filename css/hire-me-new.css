@@ -47,46 +47,33 @@
     color: white;
     overflow: hidden; }
 
-#spinner {
-  left: 50%;
-  top: 200px;
-  margin-left: -233px;
-  z-index: -5; }
-
-#slides {
-  z-index: 5; }
-
-#slide1 {
-  position: relative;
-  top: 1000px; }
-
 #about {
-  background-color: #4d407a; }
+  background-color: #77207d; }
   #about .colored-link {
-    color: #aaa0cd; }
+    color: #c936d3; }
     #about .colored-link:hover {
-      color: #CB60D3; }
+      color: #cb60d3; }
 
 a[href="#about"]:hover {
-  color: #4d407a; }
+  color: #77207d; }
 
 #resume {
-  background-color: #0F4FA8; }
+  background-color: #0f4fa8; }
 
 a[href="#resume"]:hover {
-  color: #0F4FA8; }
+  color: #0f4fa8; }
 
 #projects {
-  background-color: #FF9C40; }
+  background-color: #ff9c40; }
 
 a[href="#projects"]:hover {
-  color: #FF9C40; }
+  color: #ff9c40; }
 
 #contact {
-  background-color: #05316D; }
+  background-color: #05316d; }
 
 a[href="#contact"]:hover {
-  color: #05316D; }
+  color: #05316d; }
 
 body {
   background-color: white;
@@ -94,15 +81,16 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.45;
-  color: #ddd; }
+  color: #dddddd; }
 
 a {
   text-decoration: none;
-  color: #ddd;
+  color: #dddddd;
   transition: all .6s;
   -webkit-transition: all .6s; }
-  a:hover {
-    color: white; }
+
+a:hover {
+  color: white; }
 
 p {
   margin-bottom: 1.3em; }
@@ -147,11 +135,13 @@ nav {
   left: 25px;
   top: 15px;
   font-size: .7em; }
-  nav ul {
-    float: left; }
-    nav ul li {
-      float: left;
-      padding: 15px; }
+
+nav ul {
+  float: left; }
+
+nav ul li {
+  float: left;
+  padding: 15px; }
 
 section {
   clear: both;
@@ -160,10 +150,11 @@ section {
   padding-bottom: 25px;
   border: none;
   position: relative; }
-  section:after {
-    clear: both;
-    content: "";
-    display: block; }
+
+section:after {
+  clear: both;
+  content: "";
+  display: block; }
 
 .slide-content {
   width: 70%;
@@ -214,50 +205,64 @@ section {
   text-align: left; }
 
 #resume h4 {
-  background-color: #6996D3; }
+  background-color: #6996d3; }
+
 #resume p {
   font-size: .8em;
   text-align: left; }
+
 #resume .slide-content {
   width: 90%; }
+
 #resume ul {
   padding-bottom: 20px;
   margin-left: 15px;
   text-align: left;
   vertical-align: middle; }
+
 #resume .small-box {
   width: 35%;
   margin-left: 30px;
   float: right; }
+
 #resume .experience {
   float: left; }
-  #resume .experience:after {
-    clear: both;
-    content: "";
-    display: block; }
+
+#resume .experience:after {
+  clear: both;
+  content: "";
+  display: block; }
+
 #resume .company a {
   color: white; }
-  #resume .company a:hover {
-    color: #6996D3; }
+
+#resume .company a:hover {
+  color: #6996d3; }
+
 #resume .company-description {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7); }
+
 #resume .responsibilities {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7); }
+
 #resume em {
   font-size: .9em;
-  color: #ddd; }
+  color: #dddddd; }
+
 #resume .achievement {
   font-size: .7em;
-  color: #6996D3; }
+  color: #6996d3; }
 
 #projects img {
   width: 100%; }
+
 #projects h3 {
   margin-top: .3em; }
+
 #projects .project-listing {
   width: 30%;
   margin: 0 auto;
@@ -270,12 +275,14 @@ section {
 .contact-box {
   width: 170px;
   height: 170px;
-  border: 3px solid #ddd;
+  border: 3px solid #dddddd;
   margin: 20px auto 0;
   display: inline-block; }
-  .contact-box:hover {
-    background-color: rgba(221, 221, 221, 0.3); }
-  .contact-box h4 {
-    margin-top: 66px; }
 
-/*# sourceMappingURL=hire-me.css.map */
+.contact-box:hover {
+  background-color: rgba(221, 221, 221, 0.3); }
+
+.contact-box h4 {
+  margin-top: 66px; }
+
+/*# sourceMappingURL=hire-me-new.css.map */
