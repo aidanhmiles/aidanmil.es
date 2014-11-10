@@ -5,6 +5,8 @@ $(document).ready(function(){
 	$('#slide1').css('top', vpheight);
 	console.log("loaded");
 
+	if (window.Promise){
+
 	// SPINNER STUFF
 	Spinner.setup();
 	Spinner.fadeIn()
@@ -21,6 +23,16 @@ $(document).ready(function(){
 			easing: "easeInOutQuad"
 		});
 	});
+
+	} else {
+		$("#slides").css("display", "block"); 
+		$("#slide1").velocity({
+			top: 0
+		},{
+			duration: 1800,
+			easing: "easeInOutQuad"
+		});
+	}
 
 
 });

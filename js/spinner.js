@@ -1,5 +1,8 @@
 // This is the spinning widgety- thing with orange triangles on my homepage,
 // stuck into its very own module. Yay modules.
+// if (!Promise){
+// 	var Promise = require('es6-promise').Promise;
+// }
 
 var Spinner = (function(window){
 
