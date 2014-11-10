@@ -13,7 +13,7 @@ $(document).ready(function(){
 		.then(function(){
 
 		// bring in the rest of the stuff
-		// $("#slides").fadeIn(1);
+		$("#slides").css("display", "block");
 		$("#slide1").velocity({
 			top: 0
 		},{
