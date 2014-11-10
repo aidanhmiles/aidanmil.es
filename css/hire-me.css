@@ -18,9 +18,9 @@
     height: 266.66667px;
     width: 266.66667px; }
   #spinner #outer {
-    background-image: url("../assets/outer_slices.png"); }
+    background-image: url("../assets/outer_slices_clean.png"); }
   #spinner #inner {
-    background-image: url("../assets/inner_slices.png"); }
+    background-image: url("../assets/inner_slices_clean.png"); }
   #spinner #circle {
     background-image: url("../assets/circle.png"); }
   #spinner figcaption {
