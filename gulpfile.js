@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify'); 
+    uglify = require('gulp-uglify'),
+    del = require('del');
 
 /* paths catalog */
 var paths = {
@@ -14,7 +15,8 @@ var paths = {
     dest: {
         js: './js',
         css: './css'
-    }
+    },
+    generatedFiles: ['css/hire-me.css', 'js/hire-me.min.js']
 };
 
 /* JS */
@@ -34,6 +36,11 @@ gulp.task('sass', function(){
                .pipe(sass().on('error', sass.logError))
                .pipe(concat('hire-me.css'))
                .pipe(gulp.dest(paths.dest.css)) 
+});
+
+/* CLEANUP */
+gulp.task('clean', function(){
+    return del(paths.generatedFiles);
 });
 
 /* WATCH */
