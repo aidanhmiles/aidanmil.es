@@ -217,49 +217,61 @@ section {
 
 #resume h4 {
   background-color: #6996D3; }
+
 #resume p {
   font-size: .8em;
   text-align: left; }
+
 #resume .slide-content {
   width: 90%; }
+
 #resume ul {
   padding-bottom: 20px;
   margin-left: 15px;
   text-align: left;
   vertical-align: middle; }
+
 #resume .small-box {
   width: 35%;
   margin-left: 30px;
   float: right; }
+
 #resume .experience {
   float: left; }
   #resume .experience:after {
     clear: both;
     content: "";
     display: block; }
+
 #resume .company a {
   color: white; }
   #resume .company a:hover {
     color: #6996D3; }
+
 #resume .company-description {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7); }
+
 #resume .responsibilities {
   font-size: .8em;
   line-height: 1;
   color: rgba(221, 221, 221, 0.7); }
+
 #resume em {
   font-size: .9em;
   color: #ddd; }
+
 #resume .achievement {
   font-size: .7em;
   color: #6996D3; }
 
 #projects img {
   width: 100%; }
+
 #projects h3 {
   margin-top: .3em; }
+
 #projects .project-listing {
   width: 30%;
   margin: 0 auto;
@@ -280,4 +292,49 @@ section {
   .contact-box h4 {
     margin-top: 66px; }
 
-/*# sourceMappingURL=hire-me.css.map */
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
+#spinner {
+  width: 266.66667px;
+  height: 266.66667px;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  padding: 100px;
+  box-shadow: 0px 2px 15px #ddd;
+  z-index: 10000; }
+  #spinner .spin-img {
+    display: none;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 266.66667px;
+    height: 266.66667px;
+    width: 266.66667px; }
+  #spinner #outer {
+    background-image: url("../assets/outer_slices_clean.png"); }
+  #spinner #inner {
+    background-image: url("../assets/inner_slices_clean.png"); }
+  #spinner #circle {
+    background-image: url("../assets/circle.png"); }
+  #spinner figcaption {
+    font-family: "Lato";
+    font-size: 20pt;
+    height: 30px; }
+  #spinner p {
+    position: relative;
+    display: inline; }
+  #spinner .number {
+    width: 40px; }
+  #spinner #percent-loaded-outer {
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+    #spinner #percent-loaded-outer p {
+      color: #222; }
+  #spinner #progress-bar {
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #222;
+    color: white;
+    overflow: hidden; }

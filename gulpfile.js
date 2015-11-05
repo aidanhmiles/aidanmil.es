@@ -1,17 +1,19 @@
+/* dependencies */
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'); 
 
+/* paths catalog */
 var paths = {
     src: {
         js: ['js/*.js'],
         sass: ['sass/*.scss']
     },
     dest: {
-        js: './',
-        css: './'
+        js: './js',
+        css: './css'
     }
 };
 
@@ -36,7 +38,7 @@ gulp.task('sass', function(){
 
 /* WATCH */
 gulp.task('watch', function(){ 
-    gulp.watch('js/*.js', ['concat', 'uglify']);
+    gulp.watch('js/*.js', ['js']);
     gulp.watch('sass/*.scss', ['sass']);
 });
 
