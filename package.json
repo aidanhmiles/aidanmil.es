@@ -1,0 +1,26 @@
+{
+  "name": "itsthejazzkid.github.io",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsthejazzkid/itsthejazzkid.github.io.git"
+  },
+  "author": "Aidan Miles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsthejazzkid/itsthejazzkid.github.io/issues"
+  },
+  "homepage": "https://github.com/itsthejazzkid/itsthejazzkid.github.io",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2"
+  }
+}
