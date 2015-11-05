@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 /* paths catalog */
 var paths = {
     src: {
-        js: ['js/*.js'],
+        js: ['js/*.js', '!js/*.min.js'],
         sass: ['sass/*.scss']
     },
     dest: {
