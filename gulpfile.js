@@ -49,4 +49,4 @@ gulp.task('watch', function(){
     gulp.watch('sass/*.scss', ['sass']);
 });
 
-gulp.task('default', ['js', 'sass', 'watch']);
+gulp.task('default', ['clean', 'js', 'sass', 'watch']);
