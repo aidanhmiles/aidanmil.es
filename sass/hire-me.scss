@@ -258,6 +258,11 @@ section {
 #resume {
 	h4 { background-color: $lighter-blue; }
 
+  #resume-pdf-link {
+    float: right;
+    margin-left: 15%;
+  }
+
 	p {
 		font-size: .8em;
 		text-align: left;
