@@ -1,57 +1,58 @@
 $(document).ready(function(){
 
-	resizeBlocks(); 
-	var vpheight = $(window).height(); 
-	$('#slide1').css('top', vpheight);
-	console.log("loaded");
+    resizeBlocks(); 
+    var vpheight = $(window).height(); 
+    $('#slide1').css('top', vpheight);
+    console.log("loaded");
 
-	if (window.Promise){
+    if (window.Promise){
 
-	// SPINNER STUFF
-	Spinner.setup();
-	Spinner.fadeIn()
-		.then(Spinner.doSpins)
-		.then(Spinner.fadeOut)
-		.then(function(){
+    // SPINNER STUFF
+    Spinner.setup();
+    Spinner.fadeIn()
+        .then(Spinner.doSpins)
+        .then(Spinner.fadeOut)
+        .then(function(){
 
-		// bring in the rest of the stuff
-		$("#slides").css("display", "block");
-		$("#slide1").velocity({
-			top: 0
-		},{
-			duration: 1800,
-			easing: "easeInOutQuad"
-		});
-	});
+        // bring in the rest of the stuff
+        $("#spinner-container").css("position", "fixed");
+        $("#slides").css("display", "block");
+        $("#slide1").velocity({
+            top: 0
+        },{
+            duration: 1800,
+            easing: "easeInOutQuad"
+        });
+    });
 
-	} else {
-		$("#spinner").css("display", "none");
-		$("#slides").css("display", "block"); 
-		$("#slide1").css("top", 0);
-	}
+    } else {
+        $("#spinner-container").css("display", "none");
+        $("#slides").css("display", "block"); 
+        $("#slide1").css("top", 0);
+    }
 
 
 });
 
 $(window).on('resize', function(){
-	resizeBlocks();
+    resizeBlocks();
 });
 
 function showSlides(){
-	// make slides appear 
+    // make slides appear 
 }
 
 function resizeBlocks(){
 
-	vpwidth = $(window).width();
-	vpheight = $(window).height();
+    vpwidth = $(window).width();
+    vpheight = $(window).height();
 
-	$('.slide').css('min-height', vpheight);
+    $('.slide').css('min-height', vpheight);
 
 }
 
 function isElementInViewport (el) { 
-	//john resig's implementation
+    //john resig's implementation
     //special bonus for those using jQuery
     if (el instanceof jQuery) {
         el = el[0];
