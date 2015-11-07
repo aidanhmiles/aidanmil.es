@@ -141,8 +141,28 @@ a {
   /* slide-specific stuff */
   #about .slide-title {
     font-size: 4.0em; }
-  #resume .experience h4 {
-    background-color: #6996D3; }
+  #resume .experience {
+    color: #cce; }
+    #resume .experience h4 {
+      background-color: #6996D3; }
+    #resume .experience em {
+      color: #fff; }
+    #resume .experience a {
+      color: #fff; }
+    #resume .experience ul {
+      margin-bottom: 20px; }
+      #resume .experience ul .company {
+        font-size: 1.2em; }
+      #resume .experience ul .company-description {
+        font-size: .87em;
+        color: #bbf; }
+      #resume .experience ul .responsibilities {
+        font-size: .87em; }
+      #resume .experience ul .achievement {
+        font-size: .87em;
+        color: #fff; }
+        #resume .experience ul .achievement span {
+          color: #cce; }
   nav ul {
     display: flex;
     justify-content: space-around; }
@@ -286,22 +306,22 @@ a {
       clear: both;
       content: "";
       display: block; }
-  #resume .company a {
+  #resume .company span a {
     color: white; }
-    #resume .company a:hover {
+    #resume .company span a:hover {
       color: #6996D3; }
-  #resume .company-description {
+  #resume .company-description span {
     font-size: .8em;
     line-height: 1;
     color: rgba(221, 221, 221, 0.7); }
-  #resume .responsibilities {
+  #resume .responsibilities span {
     font-size: .8em;
     line-height: 1;
     color: rgba(221, 221, 221, 0.7); }
   #resume em {
     font-size: .9em;
     color: #ddd; }
-  #resume .achievement {
+  #resume .achievement span {
     font-size: .7em;
     color: #6996D3; }
   #projects img {

@@ -168,6 +168,34 @@ a {
 	#resume {
 		.experience {
 			h4 { background-color: $lighter-blue; }
+
+			color: #cce;
+
+			em { color: #fff; }
+
+			a { color: #fff; }
+
+			ul {
+				margin-bottom: 20px;
+
+				.company {
+					font-size: 1.2em;
+				}
+				.company-description {
+					font-size: .87em;
+					color: #bbf;
+				}
+				.responsibilities {
+					font-size: .87em;
+				}
+				.achievement {
+					font-size: .87em;
+					color: #fff;
+					span { 
+						color: #cce;
+					}
+				}
+			}
 		}
 	}
 
@@ -358,10 +386,10 @@ a {
 	#resume {
 		h4 { background-color: $lighter-blue; }
 
-	  #resume-pdf-link {
-		float: right;
-		margin-left: 15%;
-	  }
+	    #resume-pdf-link {
+	        float: right;
+    		margin-left: 15%;
+    	}
 
 		p {
 			font-size: .8em;
@@ -399,24 +427,30 @@ a {
 		}
 
 		.company { 
-			a { 
-				color: white;
-				&:hover {
-					color: $lighter-blue;
+			span {
+				a { 
+					color: white;
+					&:hover {
+						color: $lighter-blue;
+					}
 				}
 			}
 		}
 
 		.company-description {
-			font-size: .8em;
-			line-height: 1;
-			color: $fadeder;
+			span {
+				font-size: .8em;
+				line-height: 1;
+				color: $fadeder;
+			}
 		}
 
 		.responsibilities {
-			font-size: .8em; 
-			line-height: 1;
-			color: $fadeder;
+			span {
+				font-size: .8em; 
+				line-height: 1;
+				color: $fadeder;
+			}
 		}
 
 		em {
@@ -425,8 +459,10 @@ a {
 		}
 
 		.achievement {
-			font-size: .7em; 
-			color: $lighter-blue;
+			span {
+				font-size: .7em; 
+				color: $lighter-blue;
+			}
 		}
 
 	}
