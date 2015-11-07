@@ -100,7 +100,7 @@ a {
   top: 1000px; }
 
 /* MOBILE LAYOUT */
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
   /* fonts */
   html {
     font-size: 1em; }
@@ -156,7 +156,7 @@ a {
   #headshot {
     width: 100%; } }
 
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 450px) {
   a[href="#about"]:hover {
     color: #4d407a; }
   a[href="#resume"]:hover {
