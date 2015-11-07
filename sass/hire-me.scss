@@ -2,9 +2,7 @@
 //						fonts and colors
 // 
 
-// @import "compass";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-// @import url(http://fonts.googleapis.com/css?family=Raleway:400,600);
 @import url(http://fonts.googleapis.com/css?family=Lato:700);
 @import "spinner";
 $black: rgb(42, 42, 42); 
@@ -31,17 +29,8 @@ $darker-blue:#05316D;
 $light-blue:#4380D3;
 $lighter-blue:#6996D3;
 
-#slides {
-	z-index: 5;
-	display: none;
-}
-
-.slide {
-}
-
 #slide1 {
-	position: relative;
-	top: 1000px;
+	background-color: $black;
 }
 
 #about {
@@ -52,33 +41,27 @@ $lighter-blue:#6996D3;
 			color:$lighter-purple;
 		}
 	}
-}
-
-a[href="#about"] {
-	&:hover {
-		color: $dark-purple;
-	}
-}
+} 
 
 #resume { background-color: $medium-blue; }
-a[href="#resume"] {
-	&:hover {
-		color: $medium-blue;
-	}
-}
+#projects { background-color: $light-orange; } 
+#contact { background-color: $darker-blue; } 
+#main-icon1 { 
+	background-image: url("../assets/bio_110x120.png");
+} 
+#main-icon2 { 
+	background-image: url("../assets/resume_110x120.png");
+} 
+#main-icon3 {
+	background-image: url("../assets/projects_110x120.png");
+} 
+#main-icon4 { 
+	background-image: url("../assets/contact_110x120.png");
+} 
 
-#projects { background-color: $light-orange; }
-a[href="#projects"] {
-	&:hover {
-		color: $light-orange;
-	}
-}
-
-#contact { background-color: $darker-blue; }
-a[href="#contact"] {
-	&:hover {
-		color: $darker-blue;
-	}
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 @mixin unselectable {
@@ -90,79 +73,6 @@ a[href="#contact"] {
 	user-select: none; 
 }
 
-body {
-  background-color: white;
-  font-size: 1.25em;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  line-height: 1.45;
-  color: $faded;
-
-}
-
-a {
-	text-decoration: none;
-	color: $faded;
-	transition: all .6s;
-	-webkit-transition: all .6s;
-	&:hover {
-		color: white;
-	}
-	
-}
-
-p {margin-bottom: 1.3em;}
-
-h1, h2, h3, h4 {
-  margin: 1.414em 0 0.2em;
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: 3.998em;
-}
-
-#name {
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-size: 6.654em; 
-  @include unselectable;
-}
-
-h2 {font-size: 2.827em;} 
-h3 {font-size: 1.999em;} 
-h4 {font-size: 1.414em;} 
-small, .font_small {font-size: 0.707em;}
-
-h1, h2, h3, h4, h5, h6, p, a, label, input { 
-}
-
-p {
-	font-size: .90em;
-}
-
-
-nav {
-	position: absolute;
-	left: 25px;
-	top: 15px;
-	font-size: .7em;
-	ul {
-		float: left;
-
-		li {
-			float: left;
-			padding: 15px;
-		}
-	}
-}
-
-
-//
-//							the rest
-//
 @mixin group { 
 	&:after {
 		clear: both;
@@ -172,191 +82,391 @@ nav {
 
 }
 
-section {
-	clear: both;
-	background-color: $black;
-	margin: 0;
-	padding-bottom: 25px;
-	border: none;
-	position: relative;
+.slide {
 	@include group;
 }
 
-.slide-content {
-	width: 70%;
-	margin: 0 auto;
-	text-align: center;
+#slides {
+	z-index: 1;
+	display: none;
+} 
+
+#slide1 {
+	position: relative;
+	top: 1000px; // so that it's offscreen if animation is playing
 }
 
-.main-icon-listing {
-	width: 200px;
-	margin: 50px auto 0;
-	display: inline-block;
-}
+/* MOBILE LAYOUT */
+@media screen and (max-width: 350px){
 
-.main-icon-wrapper {
-	margin: 0 auto;
-	height: 120px;
-	width: 110px;
-	cursor: pointer;
-}
+	/* fonts */
+	html {font-size: 1em;}
 
-#main-icon1 { 
-	background-image: url("../assets/bio_110x120.png");
-}
-
-#main-icon2 { 
-	background-image: url("../assets/resume_110x120.png");
-}
-
-#main-icon3 {
-	background-image: url("../assets/projects_110x120.png");
-}
-
-#main-icon4 { 
-	background-image: url("../assets/contact_110x120.png");
-}
-
-.icon-large-label {
-	margin-top: 15px;
-	padding: 0;
-	font-weight: 300;
-}
-
-//
-//				SLIDES
-//
-
-.left-half { 
-	float: left;
-}
-.right-half { 
-	float: right;
-}
-
-.left-half, .right-half {
-	width: 45%;
-}
-
-.photo-wrapper {
-	float: right;
-}
-
-.bio {
-	text-align: left;
-}
-
-#resume {
-	h4 { background-color: $lighter-blue; }
-
-  #resume-pdf-link {
-    float: right;
-    margin-left: 15%;
-  }
-
-	p {
-		font-size: .8em;
-		text-align: left;
+	body {
+	  background-color: white;
+	  font-family: 'Open Sans', serif;
+	  font-weight: 400;
+	  line-height: 1.45;
+	  color: #ddd;
 	}
 
-	.slide-content {
-		width: 90%;
+	p {margin-bottom: 1.3em;}
+
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.5em;
+	  font-weight: inherit;
+	  line-height: 1.2;
 	}
 
-	ul {
-		padding-bottom: 20px;
-		margin-left: 15px;
-		text-align: left;
-		vertical-align: middle;
+	h1 {
+	  margin-top: 0;
+	  font-size: 5.063em;
 	}
 
-	ul:nth-child(3) {
-		// margin-top: 10px;
+	h2 {font-size: 3.375em;}
+
+	h3 {font-size: 2.25em;}
+
+	h4 {font-size: 1.5em;}
+
+	small, .font_small {font-size: 0.667em;}
+
+	/* slides */
+
+	#slide1 { 
+		.slide-content {
+			text-align: center;
+		}
 	}
 
-	.small-box {
-		width: 35%;
-		margin-left: 30px;
-		float: right;
-	}
+	$icon-height: 80px;
+	$icon-width: 60px;
 
-	.experience {
+	.main-icon-listing {
+		width: 100%;
 		float: left;
-		@include group;
-
+		clear: left;
+	}
+	.main-icon-wrapper {
+		display: none;
+		// margin: 30px auto 0;
+		// height: 120px;
+		// width: 110px;
 	}
 
-	.title {
+	.icon-large-label {
+		margin-top: .5em;
 	}
 
-	.company { 
-		a { 
-			color: white;
-			&:hover {
-				color: $lighter-blue;
+	/* slide-specific stuff */
+	#about {
+		.slide-title {
+			font-size: 4.0em;
+		}
+	}
+
+	#resume {
+		.experience {
+			h4 { background-color: $lighter-blue; }
+		}
+	}
+
+	// nav
+	nav {
+		ul {
+		display: flex;
+		justify-content: space-around;
+			li {
+				padding: 0 10px;
 			}
 		}
 	}
 
-	.company-description {
-		font-size: .8em;
-		line-height: 1;
-		color: $fadeder;
+	/* other layout */
+
+	p:last-child {
+		margin-bottom: 0;
 	}
 
-	.responsibilities {
-		font-size: .8em; 
-		line-height: 1;
-		color: $fadeder;
+	.slide {
+		padding: 20px 0;
 	}
 
-	em {
-		font-size: .9em;
-		color: $faded;
-	}
-
-	.achievement {
-		font-size: .7em; 
-		color: $lighter-blue;
-	}
-
-}
-
-#projects {
-	img {
+	#headshot {
 		width: 100%;
 	}
 
-	h3 {
-		margin-top: .3em;
+	
+}
+
+@media screen and (min-width: 350px){
+
+	a[href="#about"] {
+		&:hover {
+			color: $dark-purple;
+		}
+	}
+	a[href="#resume"] {
+		&:hover {
+			color: $medium-blue;
+		}
+	}
+	a[href="#projects"] {
+		&:hover {
+			color: $light-orange;
+		}
+	}
+	a[href="#contact"] {
+		&:hover {
+			color: $darker-blue;
+		}
 	}
 
-	.project-listing {
-		width: 30%;
+
+	body {
+	  background-color: white;
+	  font-size: 1.25em;
+	  font-family: "Open Sans", sans-serif;
+	  font-weight: 400;
+	  line-height: 1.45;
+	  color: $faded;
+	  @include unselectable;
+
+	}
+
+	a {
+		text-decoration: none;
+		color: $faded;
+		transition: all .6s;
+		-webkit-transition: all .6s;
+		&:hover {
+			color: white;
+		}
+		
+	}
+
+	p {margin-bottom: 1.3em;}
+
+	h1, h2, h3, h4 {
+	  margin: 1.414em 0 0.2em;
+	  font-weight: 300;
+	  line-height: 1.2;
+	}
+
+	h1 {
+	  margin-top: 0;
+	  font-size: 3.998em;
+	}
+
+	#name {
+	  font-family: "Lato", sans-serif;
+	  font-weight: 700;
+	  font-size: 6.654em; 
+	  @include unselectable;
+	}
+
+	h2 {font-size: 2.827em;} 
+	h3 {font-size: 1.999em;} 
+	h4 {font-size: 1.414em;} 
+	small, .font_small {font-size: 0.707em;}
+
+	h1, h2, h3, h4, h5, h6, p, a, label, input { 
+	}
+
+	p {
+		font-size: .90em;
+	}
+
+
+	nav {
+		position: absolute;
+		left: 25px;
+		top: 15px;
+		font-size: .7em;
+		ul {
+			float: left;
+
+			li {
+				float: left;
+				padding: 15px;
+			}
+		}
+	}
+
+
+	//
+	//							the rest
+	//
+
+	section {
+		clear: both;
+		margin: 0;
+		padding-bottom: 25px;
+		border: none;
+		position: relative;
+		@include group;
+	}
+
+	.slide-content {
+		width: 70%;
 		margin: 0 auto;
-		padding: 30px;
+		text-align: center;
+	}
+
+	.main-icon-listing {
+		width: 200px;
+		margin: 50px auto 0;
 		display: inline-block;
 	}
 
-}
-
-#contact {
-
-	h4 { margin-bottom: 40px; }
-}
-
-.contact-box {
-	width: 170px;
-	height: 170px;
-	border: 3px solid $faded;
-	margin: 20px auto 0;
-	display: inline-block;
-	&:hover {
-		background-color: rgba($faded, .3);
+	.main-icon-wrapper {
+		margin: 0 auto;
+		height: 120px;
+		width: 110px;
+		cursor: pointer;
 	}
 
-	h4 {
-		margin-top: 66px;
+	.icon-large-label {
+		margin-top: 15px;
+		padding: 0;
+		font-weight: 300;
 	}
 
+	//
+	//				SLIDES
+	//
+
+	.left-half { 
+		float: left;
+	}
+	.right-half { 
+		float: right;
+	}
+
+	.left-half, .right-half {
+		width: 45%;
+	}
+
+	.photo-wrapper {
+		float: right;
+	}
+
+	.bio {
+		text-align: left;
+	}
+
+	#resume {
+		h4 { background-color: $lighter-blue; }
+
+	  #resume-pdf-link {
+		float: right;
+		margin-left: 15%;
+	  }
+
+		p {
+			font-size: .8em;
+			text-align: left;
+		}
+
+		.slide-content {
+			width: 90%;
+		}
+
+		ul {
+			padding-bottom: 20px;
+			margin-left: 15px;
+			text-align: left;
+			vertical-align: middle;
+		}
+
+		ul:nth-child(3) {
+			// margin-top: 10px;
+		}
+
+		.small-box {
+			width: 35%;
+			margin-left: 30px;
+			float: right;
+		}
+
+		.experience {
+			float: left;
+			@include group;
+
+		}
+
+		.title {
+		}
+
+		.company { 
+			a { 
+				color: white;
+				&:hover {
+					color: $lighter-blue;
+				}
+			}
+		}
+
+		.company-description {
+			font-size: .8em;
+			line-height: 1;
+			color: $fadeder;
+		}
+
+		.responsibilities {
+			font-size: .8em; 
+			line-height: 1;
+			color: $fadeder;
+		}
+
+		em {
+			font-size: .9em;
+			color: $faded;
+		}
+
+		.achievement {
+			font-size: .7em; 
+			color: $lighter-blue;
+		}
+
+	}
+
+	#projects {
+		img {
+			width: 100%;
+		}
+
+		h3 {
+			margin-top: .3em;
+		}
+
+		.project-listing {
+			width: 30%;
+			margin: 0 auto;
+			padding: 30px;
+			display: inline-block;
+		}
+
+	}
+
+	#contact {
+
+		h4 { margin-bottom: 40px; }
+	}
+
+	.contact-box {
+		width: 170px;
+		height: 170px;
+		border: 3px solid $faded;
+		margin: 20px auto 0;
+		display: inline-block;
+		&:hover {
+			background-color: rgba($faded, .3);
+		}
+
+		h4 {
+			margin-top: 66px;
+		}
+
+	}
 }
