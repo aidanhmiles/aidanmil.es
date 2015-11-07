@@ -15,38 +15,46 @@ var paths = {
     dest: {
         js: './js',
         css: './css'
-    },
-    generatedFiles: ['css/hire-me.css', 'js/hire-me.min.js']
+    }
 };
 
 /* JS */
-gulp.task('js', function(){
-    return gulp.src(paths.src.js)
-               .pipe(sourcemaps.init())
-               .pipe(uglify())
-               .pipe(concat('hire-me.min.js'))
-               .pipe(sourcemaps.write())
-               .pipe(gulp.dest(paths.dest.js)) 
+gulp.task('js', ['cleanjs'], function(){
+    // this construction makes it async, according to Gulp's docs.
+    var stream = gulp.src(paths.src.js)
+                     .pipe(sourcemaps.init())
+                     .pipe(uglify())
+                     .pipe(concat('hire-me.min.js'))
+                     .pipe(sourcemaps.write())
+                     .pipe(gulp.dest(paths.dest.js)) 
+    return stream;
 });
 
 /* SASS */
-gulp.task('sass', function(){
-    return gulp.src(paths.src.sass)
-               .pipe(sourcemaps.init())
-               .pipe(sass().on('error', sass.logError))
-               .pipe(concat('hire-me.css'))
-               .pipe(gulp.dest(paths.dest.css)) 
+gulp.task('sass', ['cleancss'], function(){
+    var stream = gulp.src(paths.src.sass)
+                     .pipe(sourcemaps.init())
+                     .pipe(sass().on('error', sass.logError))
+                     .pipe(concat('hire-me.css'))
+                     .pipe(gulp.dest(paths.dest.css)) 
+    return stream;
 });
 
 /* CLEANUP */
-gulp.task('clean', function(){
-    return del(paths.generatedFiles);
+gulp.task('cleanjs', function(cb){
+    var stream = del('js/hire-me.min.js', cb);
+    return stream;
+});
+gulp.task('cleancss', function(cb){
+    var stream = del('css/hire-me.css', cb);
+    return stream;
 });
 
 /* WATCH */
 gulp.task('watch', function(){ 
-    gulp.watch('js/*.js', ['js']);
-    gulp.watch('sass/*.scss', ['sass']);
+    gulp.watch('js/*.js', ['cleanjs', 'js']);
+    gulp.watch('sass/*.scss', ['cleancss', 'sass']);
 });
 
-gulp.task('default', ['clean', 'js', 'sass', 'watch']);
+gulp.task('default', ['cleanjs', 'cleancss', 'js', 'sass', 'watch']);
+
