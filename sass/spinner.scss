@@ -15,6 +15,7 @@ $circle-width: 414px / $divisor;
 		content: "";
 		clear: both;
 	}
+	z-index: -5;
 }
 #spinner {
 	// opacity: 0;
