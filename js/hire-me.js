@@ -16,7 +16,8 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-var skip = getUrlParameter('skip') === 'true' ? true : false;
+// var skip = getUrlParameter('skip') === 'true' ? true : false;
+var skip = true;
 
 $(document).ready(function(){
 
