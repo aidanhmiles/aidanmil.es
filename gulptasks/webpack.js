@@ -129,7 +129,7 @@ function getWebpackConfig(){
       filename: paths.dist.indexFile,
       title: 'aidanmil.es',
       appMountId: 'mountMe',
-      devServer: 'http://localhost:8083',
+      devServer: (opts.isProd ? false : 'http://localhost:8083'),
       // chunksSortMode may or may not actually do anything currently
       // the idea is that it specifies load order of the chunks (in this case 
       // the main app bundle and the vendor bundle
