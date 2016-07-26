@@ -106,7 +106,11 @@ function getWebpackConfig(){
         { 
           test: /\.(woff|woff2|ttf|eot)$/,
           loader: 'url?name=fonts/[name].[ext]' 
-        }
+        },
+        { 
+          test: /\.(pdf)$/,
+          loader: 'file?name=[name].[ext]' 
+        },
       ]
     },
     eslint: {
