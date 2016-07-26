@@ -33,3 +33,4 @@ require('../scss/main.scss');
 // templates
 requireAll(require.context('../templates', false, /\.html$/));
 
+require('../assets/resume.pdf');
