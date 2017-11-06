@@ -31,13 +31,10 @@ function pathsAPI(){
           // files required for web app 
           client: {
             dir: clientDir,
-            webpackEntryFile: jsDir + 'app.js',
-            js: jsDir + '**/*.js',
-            jsDir: jsDir,
-            // es6: jsDir + '**/*.es6',
+            webpackEntryFile: srcDir + 'index.js',
+            components: componentsDir + '**/*.js',
             templates: templatesDir + '**/*.html',
             scss: scssDir + '**/*.scss',
-            karma: '', // all files required for karma
             assets: {
               fonts: '' + 'fonts/*',
               images: '' + 'images/*'
@@ -66,7 +63,7 @@ var root = path.resolve(__dirname) + '/',
     buildDir = clientDir + 'dist/',
     srcDir = clientDir + 'src/',
 
-    jsDir = srcDir + 'js/',
+    componentsDir = srcDir + 'components/',
     scssDir = srcDir + 'scss/',
     templatesDir = srcDir + 'templates/';
 

@@ -41,6 +41,6 @@ fs.readdirSync(__dirname)
 gulp.task('build', helper.runWebpack);
 
 // for working on the server
-gulp.task('dev:client', gulp.series(helper.runWebpackDevServer));
+gulp.task('dev', gulp.series(helper.runWebpackDevServer));
 gulp.task('default',    gulp.series(helper.runWebpackDevServer));
 

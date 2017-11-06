@@ -38,7 +38,8 @@ function runWebpackDevServer(done) {
     var compiler = webpack(getWebpackConfig());
 
     new WebpackDevServer(compiler, {
-      'content-base': 'client/dist/'
+      contentBase: 'client/dist/',
+      // hot: true
     })
     .listen(8083, 'localhost', function(err) {
       if(err) throw new gutil.PluginError('webpack-dev-server', err);
@@ -54,14 +55,15 @@ function getWebpackConfig(){
   var webpackConfig = {
     // watch: true,
     cache: true,
-    devtool: (opts.isProd ? '' : 'source-map'),
+    devtool: (opts.isProd ? '' : 'inline-source-map'),
     // directories to search when using require('moduleName');
     resolve: {
-      modulesDirectories: ['node_modules', 'client/src/vendor']
+      modules: ['node_modules', 'client/src/vendor']
     },
     entry: {
       // these are require()-able modules, from node_modules
-      vendor: ['angular', 'lodash', 'angular-ui-router', 'bluebird'],
+      vendor: ['react', 'lodash', 'bluebird'],
+      hotLoader: 'react-hot-loader/patch',
       // ES6 alert: new feature, computed key names
       [paths.config.projectName]: paths.src.client.webpackEntryFile
     },
@@ -70,53 +72,75 @@ function getWebpackConfig(){
       filename: '[name]' + (opts.isProd ? '.bundle.min.js' : '.bundle.js')
     },
     module: {
-      preLoaders: [{
-        test: /\.js$/, 
-        loader: 'eslint', 
-        exclude: /node_modules/
-      }],
-      loaders: [
+      // preLoaders: [{
+      //   test: /\.js$/, 
+      //   use: 'eslint', 
+      //   exclude: /node_modules/
+      // }],
+      rules: [
         {
           test: /\.js$/,
           exclude: /(node_modules|server|db|test)/,
-          loader: `babel?presets[]=es2015${opts.isProd ? '' : '&sourceMap'}`
-        },
-        {
-          test: /\.html$/, 
-          loader: 'ng-cache?module=templates&minimizeOptions=' + JSON.stringify(
-          // loader: 'ng-cache?module=templates&prefix=[dir]&minimizeOptions=' + JSON.stringify(
+          use: [
+            'react-hot-loader/webpack',
             {
-              conservativeCollapse: false,
-              preserveLineBreaks: false
+              loader: `babel-loader`,
+              options: {
+                presets: [
+                  [ 
+                    '@babel/preset-env',
+                    {
+                      "targets": {
+                        "chrome": 62
+                      }
+                    }
+                  ], 
+                  '@babel/react'
+                ],
+                // plugins: [
+                //   'react-hot-loader/babel'
+                // ]
+              }
             }
-          )
+          ]
         },
         {
           test: /\.scss$/,
-          loader: (
-            opts.isProd ? `style!css?minimize!sass` :
-                          `style!css?sourceMap!sass?sourceMap` 
-          )
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: opts.isProd
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: !opts.isProd
+              }
+            }
+          ]
         },
         { 
           test: /\.(png|svg)$/, 
-          loader: 'url?limit=10000&name=images/[name].[ext]' 
+          use: 'url?limit=10000&name=images/[name].[ext]' 
         },
         // fonts are loaded via the file-loader, which here just copies files from a to b
         { 
           test: /\.(woff|woff2|ttf|eot)$/,
-          loader: 'url?name=fonts/[name].[ext]' 
+          use: 'url?name=fonts/[name].[ext]' 
         },
         { 
           test: /\.(pdf)$/,
-          loader: 'file?name=[name].[ext]' 
+          use: 'file?name=[name].[ext]' 
         },
       ]
     },
-    eslint: {
-      configFile: 'gulptasks/eslintrc.yaml',
-      fix: true
-    }
+    // eslint: {
+    //   configFile: 'gulptasks/eslintrc.yaml',
+    //   fix: true
+    // }
   };
 
   webpackConfig.plugins = [
@@ -124,15 +148,16 @@ function getWebpackConfig(){
     // this plugin allows to require('vendorModule') from client code,
     // while keeping all vendor module source in vendor.bundle.js
     // without it, app.bundle.js will contain duplicated required vendor modules
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */`vendor.bundle${opts.isProd ? '.min' : ''}.js`),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: `vendor.bundle${opts.isProd ? '.min' : ''}.js` }),
 
     // this plugin generates an index.html file,
     // and provides extras like setting global ENV vars
     new HtmlWebpackPlugin({
       template: require('html-webpack-template'),
       filename: paths.dist.indexFile,
-      title: 'aidanmil.es',
-      appMountId: 'mountMe',
+      title: 'Aidan H. Miles',
+      appMountId: 'mountpoint',
+      hash: true,
       devServer: (opts.isProd ? false : 'http://localhost:8083'),
       // chunksSortMode may or may not actually do anything currently
       // the idea is that it specifies load order of the chunks (in this case 
@@ -144,16 +169,18 @@ function getWebpackConfig(){
       },
       googleAnalytics: {
         trackingId: 'UA-63108049-1',
-        pageViewOnLoad: true
+        pageViewOnLoad: opts.isProd
       },
       minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        conservativeCollapse: true
+        removeComments: opts.isProd,
+        collapseWhitespace: opts.isProd,
+        conservativeCollapse: opts.isProd
       },
       // this must be false for html-webpack-template to do its thing
       inject: false
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ];
 
   if (opts.isProd) {
