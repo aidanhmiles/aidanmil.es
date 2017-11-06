@@ -2,13 +2,13 @@
 
 ./gulp build --production
 
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# First time
-# aws --profile aidanmil.es_s3 s3 cp $DIR/client/dist/ s3://aidanmil.es --recursive 
+rm -r $DIR/client/dist/.well-known
+cp -r .well-known $DIR/client/dist/
+aws --profile website s3 sync $DIR/client/dist/ s3://aidanmil.es --delete
 
-# Subsequent times
-aws --profile aidanmil.es_s3 s3 sync $DIR/client/dist/ s3://aidanmil.es
 
 # files=($DIR/client/dist/*)
 # echo "${files[@]}"
