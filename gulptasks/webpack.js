@@ -15,6 +15,8 @@ var opts = require('./cli_opts.js');
 
 const NODE_ENV = process.env.NODE_ENV;
 
+const devPort = 8080;
+
 if (!NODE_ENV){
   throw 'NODE_ENV should be set already';
 }
@@ -39,37 +41,37 @@ function runWebpackDevServer(done) {
 
     new WebpackDevServer(compiler, {
       contentBase: 'client/dist/',
-      // hot: true
+      hot: true
     })
-    .listen(8083, 'localhost', function(err) {
+    .listen(devPort, 'localhost', function(err) {
       if(err) throw new gutil.PluginError('webpack-dev-server', err);
       // Server listening, this index.html shows the status of WebpackDevServer
-      gutil.log('[webpack-dev-server]', 'http://localhost:8083/webpack-dev-server/index.html');
+      gutil.log('[webpack-dev-server]', `http://localhost:${devPort}/webpack-dev-server/index.html`);
 
       // keep the server alive or continue?
       done();
     });
 }
 
-function getWebpackConfig(){
+function getWebpackConfig() {
   var webpackConfig = {
     // watch: true,
     cache: true,
-    devtool: (opts.isProd ? '' : 'inline-source-map'),
+    // devtool: (opts.isProd ? '' : 'inline-source-map'),
     // directories to search when using require('moduleName');
     resolve: {
       modules: ['node_modules', 'client/src/vendor']
     },
     entry: {
-      // these are require()-able modules, from node_modules
-      vendor: ['react', 'lodash', 'bluebird'],
-      hotLoader: 'react-hot-loader/patch',
-      // ES6 alert: new feature, computed key names
+      rhl: 'react-hot-loader/patch',
+      rdu: 'react-dev-utils/webpackHotDevClient',
+      vendor: ['react', 'react-dom', 'lodash', 'bluebird'],
       [paths.config.projectName]: paths.src.client.webpackEntryFile
     },
     output: {
       path: paths.dist.dir,
-      filename: '[name]' + (opts.isProd ? '.bundle.min.js' : '.bundle.js')
+      filename: '[name]' + (opts.isProd ? '.bundle.min.js' : '.bundle.js'),
+      // publicPath: 'http://localhost:8080/'
     },
     module: {
       // preLoaders: [{
@@ -82,28 +84,31 @@ function getWebpackConfig(){
           test: /\.js$/,
           exclude: /(node_modules|server|db|test)/,
           use: [
-            'react-hot-loader/webpack',
+            // 'react-hot-loader/webpack',
             {
               loader: `babel-loader`,
               options: {
                 presets: [
                   [ 
+                    // handles polyfills
                     '@babel/preset-env',
                     {
                       "targets": {
                         "chrome": 62
-                      }
+                      },
+                      modules: false
                     }
                   ], 
                   '@babel/react'
                 ],
-                // plugins: [
-                //   'react-hot-loader/babel'
-                // ]
+                plugins: [
+                  // 'react-hot-loader/babel'
+                ]
               }
             }
           ]
         },
+
         {
           test: /\.scss$/,
           use: [
@@ -122,18 +127,20 @@ function getWebpackConfig(){
             }
           ]
         },
+
         { 
           test: /\.(png|svg)$/, 
-          use: 'url?limit=10000&name=images/[name].[ext]' 
+          use: 'url-loader?limit=10000&name=assets/images/[name].[ext]' 
         },
+
         // fonts are loaded via the file-loader, which here just copies files from a to b
         { 
           test: /\.(woff|woff2|ttf|eot)$/,
-          use: 'url?name=fonts/[name].[ext]' 
+          use: 'url-loader?name=fonts/[name].[ext]' 
         },
         { 
           test: /\.(pdf)$/,
-          use: 'file?name=[name].[ext]' 
+          use: 'file-loader?name=[name].[ext]' 
         },
       ]
     },
@@ -158,11 +165,16 @@ function getWebpackConfig(){
       title: 'Aidan H. Miles',
       appMountId: 'mountpoint',
       hash: true,
-      devServer: (opts.isProd ? false : 'http://localhost:8083'),
+      devServer: (opts.isProd ? false : `http://localhost:${devPort}`),
       // chunksSortMode may or may not actually do anything currently
       // the idea is that it specifies load order of the chunks (in this case 
       // the main app bundle and the vendor bundle
-      chunksSortMode: 'dependency', 
+      chunksSortMode: 'auto', 
+      // chunks: [
+      //   'rhl',
+      //   'rdu',
+      //   paths.config.projectName
+      // ],
       window: {
         env: {
         }
@@ -180,7 +192,10 @@ function getWebpackConfig(){
       inject: false
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.DefinePlugin({
+    //   '__REACT_HOT_LOADER__': undefined
+    // })
   ];
 
   if (opts.isProd) {
