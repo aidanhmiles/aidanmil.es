@@ -7,6 +7,10 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from './components/app';
 
+require('./scss/main.scss');
+require('./assets/mahfayce.png');
+require('./assets/resume.pdf');
+
 // let store = createStore(todoApp)
 
 const render = Component => {
