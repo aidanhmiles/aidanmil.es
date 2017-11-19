@@ -119,12 +119,7 @@ function getWebpackConfig() {
                 minimize: opts.isProd
               }
             },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: !opts.isProd
-              }
-            }
+            'sass-loader',
           ]
         },
 
