@@ -90,12 +90,17 @@ a {
 	@include group;
 }
 
+.slide #resume {
+  display: flex;
+}
+
 #slides {
 	z-index: 1;
 } 
 
 #slide1 {
 	position: relative;
+  display: flex;
 }
 
 .centered-container {
