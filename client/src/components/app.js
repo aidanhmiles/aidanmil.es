@@ -1,25 +1,44 @@
 
 import React from 'react';
-// import Footer from './Footer'
-// import AddTodo from '../containers/AddTodo'
-// import VisibleTodoList from '../containers/VisibleTodoList'
 
+// import '../scss/main.scss';
 import Resume from './resume';
+import ResumeContainer from '../containers/resume';
+
 import Bio from './bio';
 import Contact from './contact';
 
-// const App = () => (
-//   <div>
-//     <AddTodo />
-//     <VisibleTodoList />
-//     <Footer />
-//   </div>
-// )
-
 const App = () => (
+
   <main id="slides">
+
     <section className="slide" id="slide1">
-      <h1> Hi! </h1>
+      {
+        <div className="centered-container">
+          <h1> 
+            Aidan Miles
+          </h1>
+          <p>
+            .
+          </p>
+          <p>
+            .
+          </p>
+          <p>
+            Full-stack web developer
+          </p>
+          <p>
+            .
+          </p>
+          <p>
+            .
+          </p>
+          <p>
+            Musician
+          </p>
+
+        </div>
+        }
     </section>
 
     <section className="slide" id="about">
@@ -28,7 +47,7 @@ const App = () => (
     </section>
 
     <section className="slide" id="resume">
-      <Resume />
+      <ResumeContainer />
     </section>
 
     <section className="slide" id="contact"> 
@@ -38,3 +57,4 @@ const App = () => (
 );
 
 export default App;
+
